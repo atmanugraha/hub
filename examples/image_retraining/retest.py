@@ -510,7 +510,8 @@ def get_random_cached_bottlenecks(sess, image_lists, how_many, category,
   bottlenecks = []
   ground_truths = []
   filenames = []
-  print("Test batch size ", how_many)
+  mycount = 0
+  print("### Test batch size ", how_many)
   if how_many >= 0:
     # Retrieve a random sample of bottlenecks.
     for unused_i in range(how_many):
@@ -540,6 +541,8 @@ def get_random_cached_bottlenecks(sess, image_lists, how_many, category,
         bottlenecks.append(bottleneck)
         ground_truths.append(label_index)
         filenames.append(image_name)
+        mycount += 1
+  print("### myCount ", mycount)
   return bottlenecks, ground_truths, filenames
 
 
