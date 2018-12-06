@@ -223,6 +223,10 @@ def create_image_lists(image_dir, testing_percentage, validation_percentage):
         testing_images.append(base_name)
       else:
         training_images.append(base_name)
+    print("### percentage_hash ", percentage_hash)
+    print("### validation_percentage ", validation_percentage)
+    print("### testing_percentage ", testing_percentage)
+    print("### testing_percentage + validation_percentage ", testing_percentage + validation_percentage)
     result[label_name] = {
         'dir': dir_name,
         'training': training_images,
@@ -510,7 +514,6 @@ def get_random_cached_bottlenecks(sess, image_lists, how_many, category,
   bottlenecks = []
   ground_truths = []
   filenames = []
-  mycount = 0
   print("### Test batch size ", how_many)
   if how_many >= 0:
     # Retrieve a random sample of bottlenecks.
@@ -541,8 +544,6 @@ def get_random_cached_bottlenecks(sess, image_lists, how_many, category,
         bottlenecks.append(bottleneck)
         ground_truths.append(label_index)
         filenames.append(image_name)
-        mycount += 1
-  print("### myCount ", mycount)
   return bottlenecks, ground_truths, filenames
 
 
