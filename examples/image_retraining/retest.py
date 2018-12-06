@@ -223,10 +223,16 @@ def create_image_lists(image_dir, testing_percentage, validation_percentage):
         testing_images.append(base_name)
       else:
         training_images.append(base_name)
+    print("### --------------- ###")
     print("### percentage_hash ", percentage_hash)
     print("### validation_percentage ", validation_percentage)
     print("### testing_percentage ", testing_percentage)
     print("### testing_percentage + validation_percentage ", testing_percentage + validation_percentage)
+    print("### --------------- ###")
+    print("### testing_images ", len(testing_images))
+    print("### validation_images ", len(validation_images))
+    print("### training_images ", len(training_images))
+    print("### --------------- ###")
     result[label_name] = {
         'dir': dir_name,
         'training': training_images,
